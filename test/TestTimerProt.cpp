@@ -38,8 +38,16 @@ protected:
     MyTimerInfo timerInfo;
 
     __transaction
-    ( __timer_prot(1, __wait(1))
+    (  __timer_prot(1, __wait(1))
     )trans;
+
+//    __transaction
+//    ( __sequential
+//        ( __wait(1)
+//        , __throw(ERROR1)
+//        , __wait(2))
+//    )trans;
+
 private:
     void SetUp() override
     {
@@ -83,7 +91,6 @@ TEST_F(TimerProt1, if_stop_should_return_stop_cause)
 {
     ASSERT_EQ(ERROR2, trans.stop(ERROR2));
 }
-
 
 struct TimerProt2: testing::Test
 {

@@ -22,12 +22,12 @@
 TSL_NS_BEGIN
 
 struct SimpleTransactionContext
-         : protected SimpleTransactionInfo
-         , protected TransactionListenerProxy
-         , protected SimpleTransactionMode
-         , protected AdaptedTimerInfo
-         , protected SimpleRuntimeContextInfo
-         , protected TransMutexSchedulerAdapter
+         :  SimpleTransactionInfo
+         ,  TransactionListenerProxy
+         ,  SimpleTransactionMode
+         ,  AdaptedTimerInfo
+         ,  SimpleRuntimeContextInfo
+         ,  TransMutexSchedulerAdapter
          , TransactionContext
 {
     explicit SimpleTransactionContext(InstanceId iid = 0);
