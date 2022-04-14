@@ -14,7 +14,7 @@
 #include <trans-dsl/tsl.h>
 #include <cub/dci/Role.h>
 #include <cub/base/Status.h>
-#include <trans-dsl/sched/concept/Unknow.h>
+#include <cub/dci/Unknown.h>
 
 TSL_NS_BEGIN
 
@@ -22,7 +22,7 @@ struct TransactionInfo;
 struct TransactionListener;
 struct TransactionMode;
 
-struct TransactionContext : Unknown
+struct TransactionContext : com::Unknown
 {
    HAS_ROLE(TransactionInfo);
    HAS_ROLE(TransactionListener);

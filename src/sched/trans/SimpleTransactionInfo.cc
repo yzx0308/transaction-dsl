@@ -48,13 +48,13 @@ cub::Status SimpleTransactionInfo::getStatus() const
 }
 
 /////////////////////////////////////////////////////////////////
-Unknown* SimpleTransactionInfo::getUserContext() const
+com::Unknown* SimpleTransactionInfo::getUserContext() const
 {
    return userContext;
 }
 
 /////////////////////////////////////////////////////////////////
-void SimpleTransactionInfo::updateUserContext(Unknown* userContext)
+void SimpleTransactionInfo::updateUserContext(com::Unknown* userContext)
 {
    this->userContext = userContext;
 }

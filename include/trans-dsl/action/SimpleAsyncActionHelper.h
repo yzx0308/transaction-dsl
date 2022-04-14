@@ -36,28 +36,15 @@ TSL_NS_END
 #define __ACTION_REAL_HANLDER(handler) actual_##handler
 
 #define ACTION_SIMPLE_EVENT_HANDLER_DECL(handler, EventType) \
-   cub::Status handler(const TSL_NS::TransactionInfo&, const ev::Event&); \
-   cub::Status __ACTION_REAL_HANLDER(handler)(const TSL_NS::TransactionInfo&, const EventType&)
+   cub::Status handler(const TransactionInfo&, const ev::Event&); \
+   cub::Status __ACTION_REAL_HANLDER(handler)(const TransactionInfo&, const EventType&)
 
 #define ACTION_SIMPLE_EVENT_HANDLER_DEF(ActionClass, handler, EventType) \
-   cub::Status ActionClass::handler(const TSL_NS::TransactionInfo& trans, const ev::Event& event) \
+   cub::Status ActionClass::handler(const TransactionInfo& trans, const ev::Event& event) \
    { \
       return __ACTION_REAL_HANLDER(handler)(trans, *((const EventType*)event.getMsg())); \
    } \
-   cub::Status ActionClass::__ACTION_REAL_HANLDER(handler)(const TSL_NS::TransactionInfo& trans, const EventType& event)
-
-/////////////////////////////////////////////////////////////
-#define DEF_SIMPLE_REQ_ACTION(action, eventId, eventType)       \
-DEF_SIMPLE_ASYNC_ACTION(action) {                               \
-   OVERRIDE(cub::Status exec(const tsl::TransactionInfo&)) {    \
-      WAIT_ON(eventId, handleRequest);                          \
-      return TSL_CONTINUE;                                      \
-   }                                                            \
-   ACTION_SIMPLE_EVENT_HANDLER_DECL(handleRequest, eventType);  \
-}
-
-#define IMPL_SIMPLE_REQ_ACTION(action, eventType) \
-ACTION_SIMPLE_EVENT_HANDLER_DEF(action, handleRequest, eventType)
+   cub::Status ActionClass::__ACTION_REAL_HANLDER(handler)(const TransactionInfo& trans, const EventType& event)
 
 #endif /* SIMPLEASYNCACTIONHELPER_H_ */
 

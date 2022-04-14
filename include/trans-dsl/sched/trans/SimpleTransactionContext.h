@@ -22,12 +22,12 @@
 TSL_NS_BEGIN
 
 struct SimpleTransactionContext
-         :  SimpleTransactionInfo
-         ,  TransactionListenerProxy
-         ,  SimpleTransactionMode
-         ,  AdaptedTimerInfo
-         ,  SimpleRuntimeContextInfo
-         ,  TransMutexSchedulerAdapter
+         : protected SimpleTransactionInfo
+         , protected TransactionListenerProxy
+         , protected SimpleTransactionMode
+         , protected AdaptedTimerInfo
+         , protected SimpleRuntimeContextInfo
+         , protected TransMutexSchedulerAdapter
          , TransactionContext
 {
     explicit SimpleTransactionContext(InstanceId iid = 0);
@@ -42,11 +42,11 @@ private:
    IMPL_ROLE(RuntimeContextInfo);
 
 protected:
-//   BEGIN_INTERFACE_TABLE()
-//      __HAS_INTERFACE(RuntimeContextInfo)
-//      __HAS_INTERFACE(TimerInfo)
-//      __HAS_INTERFACE(TransMutexScheduler)
-//   END_INTERFACE_TABLE()
+   BEGIN_INTERFACE_TABLE()
+      __HAS_INTERFACE(RuntimeContextInfo)
+      __HAS_INTERFACE(TimerInfo)
+      __HAS_INTERFACE(TransMutexScheduler)
+   END_INTERFACE_TABLE()
 };
 
 TSL_NS_END
