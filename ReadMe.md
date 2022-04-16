@@ -57,11 +57,11 @@ make
 
 常用`cut`命令：
 
-| 命令     | 用途                                  | 示例                                |
-| -------- | ------------------------------------- | ----------------------------------- |
-| --help   | 查看cut提供的命令                     | ./trans-test --help                 |
-| --list   | 查看所有用例，但不运行他们            | ./trans-test --list                 |
-| --filter | 指定运行哪部分测试用例 支持简单的正则 | ./trans-test  --filter=TimerProt1.* |
+| 命令     | 用途                                  | 示例                                                         |
+| -------- | ------------------------------------- | ------------------------------------------------------------ |
+| --help   | 查看cut提供的命令                     | ./trans-test --help                                          |
+| --list   | 查看所有用例，但不运行他们            | ./trans-test --list                                          |
+| --filter | 指定运行哪部分测试用例 支持简单的正则 | 执行Sequential fixture：<br />./trans-test  --filter="Sequential::.*"<br />执行指定测试case：<br />./trans-test  --filter="proc1::should be able to stop" |
 
 
 

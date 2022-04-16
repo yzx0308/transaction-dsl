@@ -20,10 +20,12 @@ namespace cub
     }
 }
 
-enum ErrorNo
-    : Status
-    {
-        ERROR1 = failStatus(200), ERROR2, ERROR3, ERROR4
+enum ErrorNo : Status
+{
+    ERROR1 = failStatus(200),
+    ERROR2,
+    ERROR3,
+    ERROR4
 };
 
 struct MyContext: private SimpleRuntimeContext, SimpleTransactionContext
