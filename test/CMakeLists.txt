@@ -14,4 +14,4 @@ FILE(GLOB_RECURSE all_files
 *.C)
 
 add_executable(trans-test ${all_files})
-target_link_libraries(trans-test trans-dsl gtest)
+target_link_libraries(trans-test trans-dsl cut)

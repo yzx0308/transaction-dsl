@@ -42,11 +42,30 @@ private:
    IMPL_ROLE(RuntimeContextInfo);
 
 protected:
-   BEGIN_INTERFACE_TABLE()
-      __HAS_INTERFACE(RuntimeContextInfo)
-      __HAS_INTERFACE(TimerInfo)
-      __HAS_INTERFACE(TransMutexScheduler)
-   END_INTERFACE_TABLE()
+//   BEGIN_INTERFACE_TABLE()
+//      __HAS_INTERFACE(RuntimeContextInfo)
+//      __HAS_INTERFACE(TimerInfo)
+//      __HAS_INTERFACE(TransMutexScheduler)
+//   END_INTERFACE_TABLE()
+
+    OVERRIDE(void* castTo(const ::details::InterfaceId iid) const)
+    {
+        switch(iid)
+        {
+            case RuntimeContextInfo::E_IID:
+                return const_cast<RuntimeContextInfo*>(static_cast<const RuntimeContextInfo*>(this));
+
+            case TimerInfo::E_IID:
+                return const_cast<TimerInfo*>(static_cast<const TimerInfo*>(this));
+
+            case TransMutexScheduler::E_IID:
+                return const_cast<TransMutexScheduler*>(static_cast<const TransMutexScheduler*>(this));
+
+            case 0xFFFFFFFF:
+            default:
+                return nullptr;
+        }
+    }
 };
 
 TSL_NS_END
