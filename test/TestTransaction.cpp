@@ -6,7 +6,7 @@
 #include <event/impl/ConsecutiveEventInfo.h>
 #include <trans-dsl/TslStatus.h>
 #include "trans-dsl/action/Actor.h"
-
+#include <assert.h>
 using namespace cub;
 using namespace tsl;
 using namespace ev;
