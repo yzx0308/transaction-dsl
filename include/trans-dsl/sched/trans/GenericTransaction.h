@@ -12,7 +12,7 @@ TSL_NS_BEGIN
 template <typename TIMER_INFO, typename TRANS, typename CONTEXT, typename LISTENER>
 struct GenericTransaction : TRANS
 {
-    GenericTransaction(const InstanceId iid) : iid(iid)
+    GenericTransaction(const InstanceId iid = 0) : iid(iid)
     {
         context.init();
     }
