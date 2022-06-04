@@ -284,24 +284,6 @@ FIXTURE(Status2)
     }
 };
 
-//FIXTURE(StopCause)
-//{
-//   __transaction
-//   ( __wait(1)
-//   , __finally(__on_status(TSL_FORCE_STOPPED, __throw(ERROR1)))
-//   )trans;
-//
-//   SETUP()
-//   {
-//      ASSERT_EQ(TSL_CONTINUE, trans.start());
-//   }
-//
-//   TEST("after start, if stop, should return ERROR1")
-//   {
-//      ASSERT_EQ(ERROR1, trans.stop());
-//   }
-//};
-
 FIXTURE(StopOnFinally)
 {
     __transaction
@@ -430,6 +412,7 @@ FIXTURE(void_status)
 
 struct Foo
 {
+
 };
 
 struct ReleaseRrm: SyncAction
