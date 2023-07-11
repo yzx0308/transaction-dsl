@@ -133,7 +133,7 @@ Status LoopCondCheckAction::exec(TransactionContext& context)
       return TSL_RESTART_REQUIRED;
    }
 
-   return context.ROLE(TransactionInfo).getStatus();
+   return context.getTransactionInfo().getStatus();
 }
 
 ///////////////////////////////////////////////////////////

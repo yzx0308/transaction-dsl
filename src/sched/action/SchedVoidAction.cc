@@ -40,7 +40,7 @@ namespace
    struct AutoSwitch : SimpleRuntimeContext, SimpleRuntimeContextAutoSwitch
    {
       AutoSwitch(TransactionContext& context)
-           : SimpleRuntimeContext(context.ROLE(TransactionInfo).getStatus())
+           : SimpleRuntimeContext(context.getTransactionInfo().getStatus())
            , SimpleRuntimeContextAutoSwitch(*this, context)
       {
       }

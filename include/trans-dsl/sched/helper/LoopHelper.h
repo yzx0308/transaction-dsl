@@ -38,7 +38,7 @@ namespace details
    private:
       OVERRIDE(bool shouldExecute(TransactionContext& context) const)
       {
-         return pred(context.ROLE(TransactionInfo));
+         return pred(context.getTransactionInfo());
       }
 
       T_PRED& pred;
@@ -84,7 +84,7 @@ namespace details
 
       bool shouldExecute(TransactionContext& context)
       {
-         return Parent::pred(context.ROLE(TransactionInfo));
+         return Parent::pred(context.getTransactionInfo());
       }
    };
 

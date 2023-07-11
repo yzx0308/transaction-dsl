@@ -2,9 +2,9 @@
 #define H41037034_2B25_4F59_BF43_5B607BAA5DD0
 
 #include <trans-dsl/sched/trans/SchedTransaction.h>
+#include <cub/dci/Unknown.h>
 #include <cub/log/log.h>
 #include <cub/mem/Placement.h>
-#include <trans-dsl/sched/concept/Unknow.h>
 
 TSL_NS_BEGIN
 
@@ -12,7 +12,7 @@ TSL_NS_BEGIN
 template <typename TIMER_INFO, typename TRANS, typename CONTEXT, typename LISTENER>
 struct GenericTransaction : TRANS
 {
-    GenericTransaction(const InstanceId iid) : iid(iid)
+    GenericTransaction(const InstanceId iid = 0) : iid(iid)
     {
         context.init();
     }
@@ -29,7 +29,7 @@ struct GenericTransaction : TRANS
         return TRANS::start();
     }
 
-    Unknown* getUserContext() const
+    com::Unknown* getUserContext() const
     {
         return context.getObject();
     }

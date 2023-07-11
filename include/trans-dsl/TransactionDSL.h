@@ -11,7 +11,6 @@
 #ifndef TRANSACTIONDSL_H_
 #define TRANSACTIONDSL_H_
 
-#include <event/concept/Event.h>
 #include "trans-dsl/sched/helper/ActionHelper.h"
 #include "trans-dsl/sched/helper/SequentialHelper.h"
 #include "trans-dsl/sched/helper/ConcurrentHelper.h"
@@ -30,7 +29,6 @@
 #include "trans-dsl/sched/helper/WithIdHelper.h"
 #include "trans-dsl/sched/helper/FragmentHelper.h"
 #include "trans-dsl/sched/helper/StatusHelper.h"
-#include <trans-dsl/action/SimpleAsyncActionHelper.h>
 
 #include "trans-dsl/sched/helper/TransactionHelper.h"
 
